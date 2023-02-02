@@ -3,9 +3,10 @@ import { searchFlights, searchByPrice } from "../utils/getData";
 
 const SearchBar = ({flights}) => {
   const [searchResults, setSearchResults] = useState([]);
+  const [filters, setFilters] = useState([])
   const [prices, setPrices] = useState({
-    minPrice: 0,
-    maxPrice: 0
+    minPrice: "",
+    maxPrice: ""
   }) 
   const [formValues, setFormValues] = useState({
     cityFrom: '',
@@ -17,6 +18,7 @@ const SearchBar = ({flights}) => {
 
   useEffect(() => {
     setSearchResults(flights)
+    setFilters(flights)
   }, [flights])
 
   const handleInputChange = (event) => {
@@ -48,7 +50,7 @@ const SearchBar = ({flights}) => {
   }
 
   const handleSearchPrice = () => {
-    const resultPrices = searchByPrice(flights, prices)
+    const resultPrices = searchByPrice(filters, prices)
     setSearchResults(resultPrices);
   }
 
@@ -56,6 +58,7 @@ const SearchBar = ({flights}) => {
   const handleSearch = () => {
     const result = searchFlights(flights, formValues)
     setSearchResults(result)
+    setFilters(result)
     setFormValues({
       cityFrom: '',
       cityDestination: '',
