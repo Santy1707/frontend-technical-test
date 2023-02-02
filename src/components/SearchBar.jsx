@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { searchFlights } from "../utils/getData";
+import { searchFlights, searchByPrice } from "../utils/getData";
 
 const SearchBar = ({flights}) => {
   const [searchResults, setSearchResults] = useState([]);
-  const [isInvalid, setIsInvalid] = useState(false);
-
+  const [prices, setPrices] = useState({
+    minPrice: 0,
+    maxPrice: 0
+  }) 
   const [formValues, setFormValues] = useState({
     cityFrom: '',
     cityDestination: '',
     date: '',
     passengers: '',
   });
+  const [isInvalid, setIsInvalid] = useState(false);
 
   useEffect(() => {
     setSearchResults(flights)
@@ -36,6 +39,18 @@ const SearchBar = ({flights}) => {
       });
     }
   };
+
+  const handlePricesChange = (event) => {
+    setPrices({
+      ...prices,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const handleSearchPrice = () => {
+    const resultPrices = searchByPrice(flights, prices)
+    setSearchResults(resultPrices);
+  }
 
   const allValuesFilled = Object.values(formValues).every(value => value !== '')
   const handleSearch = () => {
@@ -96,9 +111,22 @@ const SearchBar = ({flights}) => {
       </div>
 
       <div>
-        <h2>Filtros</h2>
-          <input type="text" />
-          <input type="text" />
+      <label>Filter by prices</label>
+      <input
+        type="number"
+        name="minPrice"
+        placeholder="min-price"
+        value={prices.minPrice}
+        onChange={handlePricesChange}
+        />
+      <input
+        type="number"
+        name="maxPrice"
+        placeholder="max-price"
+        value={prices.maxPrice}
+        onChange={handlePricesChange}
+        />
+        <button onClick={handleSearchPrice}> Filtrar </button>
       </div>
 
 

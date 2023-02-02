@@ -20,5 +20,9 @@ function searchFlights(flights, data){
   return flightsResult.length ? flightsResult : {message: 'No hay vuelos disponibles'}
 }
 
+function searchByPrice( stateFlights, prices ){
+  const result = stateFlights.filter( (flight) => flight.price >= prices.minPrice && flight.price <= prices.maxPrice )
+  return result.length ? result : {message: 'No hay vuelos para ese rango de precios'}
+}
 
-export { getData, searchFlights, sortPrice };
+export { getData, searchFlights, sortPrice, searchByPrice };
