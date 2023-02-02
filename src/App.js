@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+    <h1>Hola mundo</h1>
       <SearchBar flights={dataGlobal}></SearchBar>
     </div>
   );
