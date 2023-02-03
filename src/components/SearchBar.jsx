@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { searchFlights, searchByPrice, orderByHour, getFlightId } from "../utils/getData";
+import {
+  searchFlights,
+  searchByPrice,
+  orderByHour,
+  getFlightId,
+} from "../utils/getData";
 import Modal from "./Modal";
 
 const SearchBar = ({ flights }) => {
@@ -7,8 +12,7 @@ const SearchBar = ({ flights }) => {
   const [filters, setFilters] = useState([]);
   const [hour, setHour] = useState("");
   const [showModal, setShowModal] = useState(false);
-  const [idFlight, setIdFlight] = useState('');
-  console.log(idFlight)
+  const [idFlight, setIdFlight] = useState("");
   const [prices, setPrices] = useState({
     minPrice: "",
     maxPrice: "",
@@ -54,9 +58,9 @@ const SearchBar = ({ flights }) => {
   };
 
   const changeIdFlight = (event) => {
-    setIdFlight(event.target.value)
-    setShowModal(true) 
-  }
+    setIdFlight(event.target.value);
+    setShowModal(true);
+  };
 
   const handleSearchPrice = () => {
     const resultPrices = searchByPrice(filters, prices);
@@ -68,14 +72,14 @@ const SearchBar = ({ flights }) => {
     setSearchResults(hourFilter);
   };
 
-
   const allValuesFilled = Object.values(formValues).every(
     (value) => value !== ""
   );
   const allValuesPriceFilled = Object.values(prices).every(
     (value) => value !== ""
   );
-  const priceError = parseInt(prices.maxPrice) < parseInt(prices.minPrice) ? true : false;
+  const priceError =
+    parseInt(prices.maxPrice) < parseInt(prices.minPrice) ? true : false;
   const handleSearch = () => {
     const result = searchFlights(filters, formValues);
     setSearchResults(result);
@@ -220,7 +224,9 @@ const SearchBar = ({ flights }) => {
                 <h2>AvailableSeats: {flight.availableSeats}</h2>
                 <h2>Date: {flight.date.slice(0, 10)}</h2>
                 {/* Renderizado condicional del modal, XD */}
-                <button value={flight._id} onClick={(e) => changeIdFlight(e)}>Purchase</button>
+                <button value={flight._id} onClick={(e) => changeIdFlight(e)}>
+                  Purchase
+                </button>
               </div>
             );
           })
@@ -228,7 +234,9 @@ const SearchBar = ({ flights }) => {
           <h1>{searchResults.message}</h1>
         )}
       </div>
-      <div>{showModal && <Modal id={idFlight} setModal={setShowModal}></Modal>}</div>
+      <div>
+        {showModal && <Modal id={idFlight} setModal={setShowModal}></Modal>}
+      </div>
     </div>
   );
 };

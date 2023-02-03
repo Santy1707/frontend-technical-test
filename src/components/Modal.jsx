@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { getFlightId } from "../utils/getData";
 
-const Modal = ({id, setModal}) => {
-  const [detail, setDetailFlight] = useState()
-  useEffect( () => {
-    if(id){
+const Modal = ({ id, setModal }) => {
+  const [detail, setDetailFlight] = useState();
+  useEffect(() => {
+    if (id) {
       const flightId = async () => {
         const idFlight = await getFlightId(id);
         setDetailFlight(idFlight);
       };
-      flightId()
+      flightId();
     }
-  }, [id])
-  console.log(detail)
+  }, [id]);
+  console.log(detail);
 
-  if(!detail){
-    return <h1>Cargando......</h1>
+  if (!detail) {
+    return <h1>Cargando......</h1>;
   }
   return (
     <div>
@@ -25,7 +25,7 @@ const Modal = ({id, setModal}) => {
       <h2>Precio: {detail.price}</h2>
       <h2>Fecha {detail.date.slice(0, 10)}</h2>
       <h2>Hora: {detail.date.slice(11, 25)}</h2>
-      <button onClick={ () => setModal(false)}>Cancel</button>
+      <button onClick={() => setModal(false)}>Cancel</button>
     </div>
   );
 };
