@@ -1,0 +1,33 @@
+.navbar {
+  width: 100%;
+  background-color: #04276C ;
+  color: white;
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  flex: grid;
+}
+
+.navbar__info {
+  background-color: #e01a1a;
+  width: 80%;
+  display: flex;
+}
+
+.navbar__title {
+
+}
+
+.navbar__vuelos {
+  background-color: #000000;
+}
+
+.navbar__prices {
+  background-color: #487FED;
+}
+
+.navbar__hours {
+  background-color: #95B5F7;
+}

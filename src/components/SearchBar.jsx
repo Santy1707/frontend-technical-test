@@ -3,9 +3,9 @@ import {
   searchFlights,
   searchByPrice,
   orderByHour,
-  getFlightId,
 } from "../utils/getData";
 import Modal from "./Modal";
+import './styles.css'
 
 const SearchBar = ({ flights }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -30,6 +30,7 @@ const SearchBar = ({ flights }) => {
   }, [flights]);
 
   const handleInputChange = (event) => {
+    console.log(event.target.value)
     if (event.target.name === "date") {
       if (event.target.valueAsNumber < Date.now()) {
         setIsInvalid(true);
@@ -97,7 +98,11 @@ const SearchBar = ({ flights }) => {
   }
   return (
     <div>
-      <div>
+    
+    <header className="navbar">
+      <h1 className="navbar__title">Hola mundo</h1>
+    <div className="navbar__info">
+      <div className="navbar__vuelos">
         <h1>Buscar vuelos</h1>
         <label htmlFor="">CityFrom</label>
         <select name="cityFrom" id="cityFrom" onChange={handleInputChange}>
@@ -169,7 +174,7 @@ const SearchBar = ({ flights }) => {
         </button>
       </div>
 
-      <div>
+      <div className="navbar__prices">
         <label>Filter by prices</label>
         <input
           type="number"
@@ -194,11 +199,11 @@ const SearchBar = ({ flights }) => {
           disabled={!allValuesPriceFilled | priceError}
           onClick={handleSearchPrice}
         >
-          {" "}
-          Filtrar{" "}
-        </button>
+        Filtrar 
+      </button>
 
-        <div>
+      </div>
+      <div className="navbar__hours">
           <input
             type="time"
             name="time"
@@ -209,8 +214,9 @@ const SearchBar = ({ flights }) => {
           <p>Los resultados seran de un rango de dos horas</p>
           <button onClick={handleOrderHour}>Buscar por hora</button>
         </div>
-      </div>
+    </div>
 
+    </header>
       <div>
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {

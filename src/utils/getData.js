@@ -9,6 +9,19 @@ async function getFlightId (id) {
   }
 }
 
+const API_KEY = '0386930f5763e2b711a8a4f5'
+async function exChangeRate() {
+  try {
+    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`
+    const rateUSD = await fetch(url)
+    .then( res => res.json())
+    console.log(rateUSD)
+    return rateUSD
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function getData () {
   try {
     const url = "https://flights-api-production.up.railway.app/api/flights"
@@ -24,7 +37,6 @@ function sortPrice(flights) {
   const sortPrices = flights.sort((a, b) => a.price - b.price )
   return sortPrices
 }
-
 
 function searchFlights(flights, data){
   const flightsResult = flights.filter( (flight) =>
@@ -52,4 +64,4 @@ function orderByHour( stateFlights, hour) {
   return flightsHour.length ? flightsHour : {message: 'No hay vuelos para ese rango horario'}
 }
 
-export { getData, searchFlights, sortPrice, searchByPrice, orderByHour, getFlightId };
+export { getData, searchFlights, sortPrice, searchByPrice, orderByHour, getFlightId, exChangeRate };
