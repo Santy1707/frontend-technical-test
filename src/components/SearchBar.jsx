@@ -89,11 +89,11 @@ const SearchBar = ({ flights }) => {
     });
   };
 
-  if (!filters.length) {
+  if (!flights) {
     return <h1>Cargando...</h1>;
   }
   return (
-    <div>
+    <div className="div__general">
       <header className="navbar">
         <h1 className="navbar__title">Hola mundo</h1>
         <div className="navbar__info">
@@ -173,6 +173,7 @@ const SearchBar = ({ flights }) => {
           </div>
 
           <div className="navbar__prices">
+          <h1>Filtrar por precio</h1>
             <label>Filter by prices</label>
             <input
               type="number"
@@ -201,6 +202,7 @@ const SearchBar = ({ flights }) => {
             </button>
           </div>
           <div className="navbar__hours">
+          <h1>Filtrar por hora</h1>
             <input
               type="time"
               name="time"
@@ -213,11 +215,11 @@ const SearchBar = ({ flights }) => {
           </div>
         </div>
       </header>
-      <div>
+      <div className="flights__map">
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {
             return (
-              <div key={flight._id}>
+              <div className="flights__card" key={flight._id}>
                 <h2>ID: {flight._id}</h2>
                 <h1>From: {flight.cityFrom}</h1>
                 <h2>To: {flight.cityTo}</h2>
@@ -235,9 +237,9 @@ const SearchBar = ({ flights }) => {
         ) : (
           <h1>{searchResults.message}</h1>
         )}
-      </div>
-      <div>
-        {showModal && <Modal id={idFlight} setModal={setShowModal}></Modal>}
+          <div className="flights__modal">
+            {showModal && <div className="overlay"><Modal id={idFlight} setModal={setShowModal}></Modal></div> }
+          </div>
       </div>
     </div>
   );

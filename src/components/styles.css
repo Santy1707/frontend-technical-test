@@ -1,23 +1,26 @@
+.div__general {
+  display: flex;
+}
+
 .navbar {
   width: 100%;
   background-color: #04276C ;
   color: white;
-  z-index: 1;
   position: fixed;
   display: flex;
   padding-bottom: 2rem;
   padding-top: 2rem;
   flex: grid;
+  z-index: 2;
 }
 
 .navbar__info {
-  background-color: #e01a1a;
   width: 80%;
   display: flex;
 }
 
 .navbar__title {
-
+  font-size: medium;
 }
 
 .navbar__vuelos {
@@ -30,4 +33,50 @@
 
 .navbar__hours {
   background-color: #95B5F7;
+}
+
+.flights__map {
+  display: flex;
+  padding-bottom: 2.5rem;
+  margin-top: calc(9rem + 60px); /* Agrega un margen superior igual a la altura de la navbar */
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples filas */
+  position: relative;
+  }
+
+.flights__card {
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ddd;
+  flex-basis: 25%;
+  text-align: center;
+  margin: 1rem;
+  background-color: #fff;
+}
+
+.flights__modal{ 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9;
+}
+
+@media screen and (max-width: 767px) {
+  .flights__map {
+    margin-top: calc(12rem + 60px); /* Agrega un margen superior igual a la altura de la navbar */
+    }  
 }
