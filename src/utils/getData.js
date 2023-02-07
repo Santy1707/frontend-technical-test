@@ -38,6 +38,14 @@ function sortPrice(flights) {
   return sortPrices
 }
 
+/**
+ * Suma dos números.
+ * 
+ * @param {array} flights El array con los vuelos para filtrar.
+ * @param {objeto} data El objeto que vamos a filtrar en el array.
+ * @returns {array} El array de objetos que resulta de aplicar el metodo filter.
+ */
+
 function searchFlights(flights, data){
   const flightsResult = flights.filter( (flight) =>
     flight.availableSeats > data.passengers &&
