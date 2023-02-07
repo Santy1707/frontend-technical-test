@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFlightId, calculateMiles, exChangeRate } from "../utils/getData";
+import { getFlightId, exChangeRate } from "../utils/getData";
 
 const Modal = ({ id, setModal }) => {
 const [detail, setDetailFlight] = useState();
