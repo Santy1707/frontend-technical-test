@@ -173,7 +173,7 @@ const SearchBar = ({ flights }) => {
           </div>
 
           <div className="navbar__prices">
-          <h1>Filtrar por precio</h1>
+            <h1>Filtrar por precio</h1>
             <label>Filter by prices</label>
             <input
               type="number"
@@ -202,7 +202,7 @@ const SearchBar = ({ flights }) => {
             </button>
           </div>
           <div className="navbar__hours">
-          <h1>Filtrar por hora</h1>
+            <h1>Filtrar por hora</h1>
             <input
               type="time"
               name="time"
@@ -227,20 +227,39 @@ const SearchBar = ({ flights }) => {
                 <h2>Hora: {flight.date.slice(11, 25)}</h2>
                 <h2>AvailableSeats: {flight.availableSeats}</h2>
                 <h2>Date: {flight.date.slice(0, 10)}</h2>
-                {/* Renderizado condicional del modal, XD */}
-                <button value={flight._id} onClick={(e) => changeIdFlight(e)}>
-                  Purchase
-                </button>
+                {/* the buy button displays the modal */}
+                <div className="modal__button">
+                  <button
+                    className="modal__btn"
+                    value={flight._id}
+                    onClick={(e) => changeIdFlight(e)}
+                  >
+                    buy
+                  </button>
+                  {/* modal  */}
+       
+                </div>
               </div>
             );
           })
         ) : (
           <h1>{searchResults.message}</h1>
         )}
-          <div className="flights__modal">
-            {showModal && <div className="overlay"><Modal id={idFlight} setModal={setShowModal}></Modal></div> }
-          </div>
       </div>
+      <div className="container__modal">
+                    <div className="flights__modal">
+                      <div className="flights__modal__content">
+                        {showModal && (
+                          <div className="overlay">
+                            <Modal
+                              id={idFlight}
+                              setModal={setShowModal}
+                            ></Modal>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
     </div>
   );
 };
