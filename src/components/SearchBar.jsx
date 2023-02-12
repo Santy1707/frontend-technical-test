@@ -25,8 +25,8 @@ const SearchBar = ({ flights }) => {
     setFilters(flights);
   }, [flights]);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [modal, setModal] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const [modal, setModal] = useState(false);
   const handleInputChange = (event) => {
     console.log(event.target.value);
     if (event.target.name === "date") {
@@ -217,18 +217,33 @@ const SearchBar = ({ flights }) => {
           </div>
         </div>
       </header>
-      <div className="flights__map">
+      <div className="flights">
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {
             return (
               <div className="flights__card" key={flight._id}>
-                <h2>ID: {flight._id}</h2>
-                <h1>From: {flight.cityFrom}</h1>
-                <h2>To: {flight.cityTo}</h2>
-                <h2>Price: {flight.price}</h2>
-                <h2>Hora: {flight.date.slice(11, 25)}</h2>
-                <h2>AvailableSeats: {flight.availableSeats}</h2>
-                <h2>Date: {flight.date.slice(0, 10)}</h2>
+                {/* <h2>ID: {flight._id}</h2> */}
+                <h1 className="flights__card__title">From: {flight.cityFrom}</h1>
+                <h1 className="flights__card__title">To: {flight.cityTo}</h1>
+                <h2 className="flights__card__info"><strong>
+                  Price: &nbsp;
+                  </strong>
+                  {flight.price}</h2>
+                <h2 className="flights__card__info"> <strong>
+                  Time: &nbsp;
+                  </strong>
+                  {flight.date.slice(11, 25)}</h2>
+                <h2 className="flights__card__info">
+                  <strong>
+                    Available Seats: &nbsp;
+                    </strong>
+                     {flight.availableSeats}</h2>
+                <h2 className="flights__card__info">
+                  <strong>
+                    Date: &nbsp;
+                    </strong> 
+                 {flight.date.slice(0, 10)}</h2>
+
                 {/* the buy button displays the modal */}
                 <div className="modal__button">
                   <button
@@ -236,13 +251,12 @@ const SearchBar = ({ flights }) => {
                     value={flight._id}
                     onClick={(e) => {
                       changeIdFlight(e);
-                      setIsOpen(true);
                     }}
                   >
-                    buy
+                    <label htmlFor="modal-toggle" className="modal-btn">
+                      BUY
+                    </label>
                   </button>
-                  {/* modal  */}
-       
                 </div>
               </div>
             );
@@ -251,24 +265,22 @@ const SearchBar = ({ flights }) => {
           <h1>{searchResults.message}</h1>
         )}
       </div>
-      <div className="container__modal">
-                    <div className="flights__modal">
-                      {/* <div className="flights__modal__content"> */}
-                        {isOpen && (
-                          <div className="overlay">
-                            <Modal
-                              id={idFlight}
-                              closeModal={() => setIsOpen(false)}
-                              setModal={setShowModal}
-                              modal={modal}
-                              isOpen={isOpen}
-                              setIsOpen={setIsOpen}
-                            ></Modal>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
+        {/* modal  */}
+
+        <input type="checkbox" id="btn-modal"/>
+      <div className="container-modal">
+        <div className="flights__modal">
+          {showModal && (
+            <div className="overlay">
+              <label htmlFor="modal-toggle" className="modal-toggle">
+                &times;
+              </label>
+              <Modal id={idFlight} setModal={setShowModal}></Modal>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
     // </div>
   );
 };

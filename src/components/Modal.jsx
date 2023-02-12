@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFlightId, exChangeRate } from "../utils/getData";
 
-const Modal = ({ id, setModal, setIsOpen, modal, isOpen }) => {
+const Modal = ({ id, setModal }) => {
   const [detail, setDetailFlight] = useState();
   const [buttonBuy, setButtonBuy] = useState(true);
   const [buyFlight, setBuyFlight] = useState({
@@ -20,10 +20,6 @@ const Modal = ({ id, setModal, setIsOpen, modal, isOpen }) => {
       flightId();
     }
   }, [id]);
-
-  useEffect(() => {
-    console.log("modal state has changed");
-  }, [modal, isOpen]);
 
   const handleCurrency = async (event) => {
     setButtonBuy(false);
@@ -52,7 +48,9 @@ const Modal = ({ id, setModal, setIsOpen, modal, isOpen }) => {
     return <h1>Cargando......</h1>;
   }
   return (
-    <article className="modal is-open">
+    <article className="container-modal1">
+      
+
       <input type="checkbox" className="modal-container" id="modal-btn" />
       <h2>Ciudad de salida: {detail.cityFrom}</h2>
       <h2>Ciudad de destino: {detail.cityTo}</h2>
@@ -83,14 +81,9 @@ const Modal = ({ id, setModal, setIsOpen, modal, isOpen }) => {
       </button>
 
       {/* <button className="modal-close" onClick={() => {setModal(false); setIsOpen(false)} }>cancel</button> */}
-      <button
-        className="modal-close"
-        onClick={() => {
-          setModal(false);
-          setIsOpen(false);
-        }}
-      >
-        cancel
+
+      <button className="modal__close" onClick={() => setModal(false)}>
+        Cancel
       </button>
     </article>
   );
