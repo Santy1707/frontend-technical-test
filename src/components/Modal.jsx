@@ -45,25 +45,25 @@ const Modal = ({ id, setModal }) => {
   };
 
   if (!detail) {
-    return <h1>Cargando......</h1>;
+    return <h1>Loading......</h1>;
   }
   return (
     <article className="container-modal1">
       
 
       <input type="checkbox" className="modal-container" id="modal-btn" />
-      <h2>Ciudad de salida: {detail.cityFrom}</h2>
-      <h2>Ciudad de destino: {detail.cityTo}</h2>
-      <h3>Precio: {detail.price}</h3>
-      <h3>Fecha {detail.date.slice(0, 10)}</h3>
-      <h3>Hora: {detail.date.slice(11, 25)}</h3>
+      <h2>Origin: {detail.cityFrom}</h2>
+      <h2>Destination: {detail.cityTo}</h2>
+      <h3>Price: {detail.price}</h3>
+      <h3>Date {detail.date.slice(0, 10)}</h3>
+      <h3>Time: {detail.date.slice(11, 25)}</h3>
       <select name="currency" id="" onChange={handleCurrency}>
         <option value="">Select Currency</option>
         <option value="USD">USD</option>
         <option value="COP">COP</option>
       </select>
       <h4>
-        Final price:{" "}
+        Total:{" "}
         {buyFlight.finalPrice !== "" ? (
           <p>
             {buyFlight.currency}: {buyFlight.finalPrice}
@@ -75,9 +75,9 @@ const Modal = ({ id, setModal }) => {
         )}
       </h4>
       <p>You have gained {buyFlight.indatumMiles} miles</p>
-      <p>Antes de comprar selecciona el tipo de moneda</p>
+      <p>Select currency</p>
       <button disabled={buttonBuy} onClick={handleSaveData}>
-        Comprar
+        Buy
       </button>
 
       {/* <button className="modal-close" onClick={() => {setModal(false); setIsOpen(false)} }>cancel</button> */}

@@ -100,10 +100,10 @@ const SearchBar = ({ flights }) => {
         <h1 className="navbar__title">Hola mundo</h1>
         <div className="navbar__info">
           <div className="navbar__vuelos">
-            <h1>Buscar vuelos</h1>
-            <label htmlFor="">CityFrom</label>
+            <h1>Search flights</h1>
+            {/* <label htmlFor="">CityFrom</label> */}
             <select name="cityFrom" id="cityFrom" onChange={handleInputChange}>
-              <option>Ciudad de partida</option>
+              <option>Origin</option>
               {flights?.map((flight) => {
                 return (
                   <>
@@ -120,13 +120,13 @@ const SearchBar = ({ flights }) => {
               })}
             </select>
 
-            <label htmlFor="">CityTo</label>
+            {/* <label htmlFor="">CityTo</label> */}
             <select
               name="cityDestination"
               id="cityDestination"
               onChange={handleInputChange}
             >
-              <option>Ciudad de destino</option>
+              <option>destination</option>
               {flights?.map((flight) => {
                 return (
                   <>
@@ -154,7 +154,7 @@ const SearchBar = ({ flights }) => {
             />
             {isInvalid && (
               <div style={{ color: "red" }}>
-                La fecha debe ser igual o posterior a la actual
+                date must be later than current date
               </div>
             )}
             <input
@@ -175,19 +175,19 @@ const SearchBar = ({ flights }) => {
           </div>
 
           <div className="navbar__prices">
-            <h1>Filtrar por precio</h1>
-            <label>Filter by prices</label>
+            <h1>Filter by price</h1>
+            {/* <label>Filter by prices</label> */}
             <input
               type="number"
               name="minPrice"
-              placeholder="min-price"
+              placeholder="min"
               value={prices.minPrice}
               onChange={handlePricesChange}
             />
             <input
               type="number"
               name="maxPrice"
-              placeholder="max-price"
+              placeholder="max"
               value={prices.maxPrice}
               onChange={handlePricesChange}
             />
@@ -200,11 +200,11 @@ const SearchBar = ({ flights }) => {
               disabled={!allValuesPriceFilled | priceError}
               onClick={handleSearchPrice}
             >
-              Filtrar
+              Filter
             </button>
           </div>
           <div className="navbar__hours">
-            <h1>Filtrar por hora</h1>
+            <h1>Filter by time</h1>
             <input
               type="time"
               name="time"
@@ -212,8 +212,8 @@ const SearchBar = ({ flights }) => {
               value={hour}
               onChange={(e) => setHour(e.target.value)}
             />
-            <p>Los resultados seran de un rango de dos horas</p>
-            <button onClick={handleOrderHour}>Buscar por hora</button>
+            <p>results will be within a two hour range</p>
+            <button onClick={handleOrderHour}>Filter</button>
           </div>
         </div>
       </header>
