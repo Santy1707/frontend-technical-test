@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFlightId, exChangeRate } from "../utils/getData";
 
-const Modal = ({ id, setModal }) => {
+const Modal = ({ id, setModal, setIsOpen, modal, isOpen }) => {
   const [detail, setDetailFlight] = useState();
   const [buttonBuy, setButtonBuy] = useState(true);
   const [buyFlight, setBuyFlight] = useState({
@@ -10,6 +10,7 @@ const Modal = ({ id, setModal }) => {
     finalPrice: "",
     ...detail,
   });
+
   useEffect(() => {
     if (id) {
       const flightId = async () => {
@@ -19,6 +20,10 @@ const Modal = ({ id, setModal }) => {
       flightId();
     }
   }, [id]);
+
+  useEffect(() => {
+    console.log("modal state has changed");
+  }, [modal, isOpen]);
 
   const handleCurrency = async (event) => {
     setButtonBuy(false);
@@ -47,8 +52,8 @@ const Modal = ({ id, setModal }) => {
     return <h1>Cargando......</h1>;
   }
   return (
-    <div >
-      <input type="checkbox" id="modal-btn"/>
+    <article className="modal is-open">
+      <input type="checkbox" className="modal-container" id="modal-btn" />
       <h2>Ciudad de salida: {detail.cityFrom}</h2>
       <h2>Ciudad de destino: {detail.cityTo}</h2>
       <h3>Precio: {detail.price}</h3>
@@ -76,13 +81,18 @@ const Modal = ({ id, setModal }) => {
       <button disabled={buttonBuy} onClick={handleSaveData}>
         Comprar
       </button>
-      <div className="modal__close">
-<lable for="modal__btn">
 
-      <button onClick={() => setModal(false)}>cancel</button>
-</lable>
-      </div>
-    </div>
+      {/* <button className="modal-close" onClick={() => {setModal(false); setIsOpen(false)} }>cancel</button> */}
+      <button
+        className="modal-close"
+        onClick={() => {
+          setModal(false);
+          setIsOpen(false);
+        }}
+      >
+        cancel
+      </button>
+    </article>
   );
 };
 

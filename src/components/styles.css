@@ -107,9 +107,10 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
 }
-.modal__close {
+.modal__close:checked .flights__modal .container__modal {
+  display: none;
 }
-#modal-btn:checked  .flights__modal {
+#modal-btn:checked .flights__modal {
   display: flex;
 }
 

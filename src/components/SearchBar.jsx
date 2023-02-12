@@ -25,6 +25,8 @@ const SearchBar = ({ flights }) => {
     setFilters(flights);
   }, [flights]);
 
+  const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState(false);
   const handleInputChange = (event) => {
     console.log(event.target.value);
     if (event.target.name === "date") {
@@ -232,7 +234,10 @@ const SearchBar = ({ flights }) => {
                   <button
                     className="modal__btn"
                     value={flight._id}
-                    onClick={(e) => changeIdFlight(e)}
+                    onClick={(e) => {
+                      changeIdFlight(e);
+                      setIsOpen(true);
+                    }}
                   >
                     buy
                   </button>
@@ -248,19 +253,23 @@ const SearchBar = ({ flights }) => {
       </div>
       <div className="container__modal">
                     <div className="flights__modal">
-                      <div className="flights__modal__content">
-                        {showModal && (
+                      {/* <div className="flights__modal__content"> */}
+                        {isOpen && (
                           <div className="overlay">
                             <Modal
                               id={idFlight}
+                              closeModal={() => setIsOpen(false)}
                               setModal={setShowModal}
+                              modal={modal}
+                              isOpen={isOpen}
+                              setIsOpen={setIsOpen}
                             ></Modal>
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
-    </div>
+    // </div>
   );
 };
 
