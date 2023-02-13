@@ -96,10 +96,11 @@
   grid-area: lat;
 } */
 .navbar__lat input {
-  height: 3rem;
+  height: 4rem;
   border-radius: 0.5rem;
   border: none;
-  min-width: 40px;
+  width: 90px;
+  margin: 0 auto;
 }
 .navbar__lat__price {
   height: 300px;
@@ -151,7 +152,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
   grid-area: card;
   background-color: #fff;
   border-radius: 20px;
@@ -266,12 +266,22 @@ hr {
     margin: 0 auto;
   }
 
+    .flights {
+    margin: 20px;
+    padding: 10px;
+    padding-bottom: 2.5rem;
+    background-color: rgb(255, 255, 255, 0);
+  }
+  
   .flights__card {
     display: grid;
     grid-template-columns: 1fr;
     justify-content: space-between;
-    color: rgb(255, 255, 255);
-    border-bottom: 1px solid white;
+    color: rgb(255, 255, 255 0.5);
+    border-bottom: none;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
   }
 
   .flights__card__ms {
@@ -298,6 +308,10 @@ hr {
   .navbar__lat__price {
     padding-top: 0;
     border-bottom: none;
+  }
+
+  .navbar__lat input {
+    width: 150px;
   }
 
 }
