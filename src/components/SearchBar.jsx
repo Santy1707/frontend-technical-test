@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { searchFlights, searchByPrice, orderByHour } from "../utils/getData";
 import Modal from "./Modal";
 import "./styles.css";
+import logo from "../images/logo.png";
 
 const SearchBar = ({ flights }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -95,154 +96,158 @@ const SearchBar = ({ flights }) => {
     return <h1>Cargando...</h1>;
   }
   return (
-    <div className="div__general">
-      <header className="navbar">
-        <h1 className="navbar__title">Hola mundo</h1>
-        <div className="navbar__info">
-          <div className="navbar__vuelos">
-            <h1>Search flights</h1>
-            {/* <label htmlFor="">CityFrom</label> */}
-            <select name="cityFrom" id="cityFrom" onChange={handleInputChange}>
-              <option>Origin</option>
-              {flights?.map((flight) => {
-                return (
-                  <>
-                    <option
-                      placeholder="City From"
-                      name="cityFrom"
-                      key={flight._id}
-                      value={flight.cityFrom}
-                    >
-                      {flight.cityFrom}
-                    </option>
-                  </>
-                );
-              })}
-            </select>
+    <div className="container">
+      {/* <header className="navbar"> */}
+      <div className="navbar__top">
+        {/* <div className="navbar__info"> */}
+          <img src={logo} width="190px"/>
+        <div className="navbar__search">
+          <h1>Search flights</h1>
+          {/* <label htmlFor="">CityFrom</label> */}
+          <select name="cityFrom" id="cityFrom" onChange={handleInputChange}>
+            <option>Origin</option>
+            {flights?.map((flight) => {
+              return (
+                <>
+                  <option
+                    placeholder="City From"
+                    name="cityFrom"
+                    key={flight._id}
+                    value={flight.cityFrom}
+                  >
+                    {flight.cityFrom}
+                  </option>
+                </>
+              );
+            })}
+          </select>
 
-            {/* <label htmlFor="">CityTo</label> */}
-            <select
-              name="cityDestination"
-              id="cityDestination"
-              onChange={handleInputChange}
-            >
-              <option>destination</option>
-              {flights?.map((flight) => {
-                return (
-                  <>
-                    <option
-                      placeholder="City To"
-                      name="cityDestination"
-                      key={flight._id}
-                      value={flight.cityTo}
-                    >
-                      {flight.cityTo}
-                    </option>
-                  </>
-                );
-              })}
-            </select>
+          {/* <label htmlFor="">CityTo</label> */}
+          <select
+            name="cityDestination"
+            id="cityDestination"
+            onChange={handleInputChange}
+          >
+            <option>destination</option>
+            {flights?.map((flight) => {
+              return (
+                <>
+                  <option
+                    placeholder="City To"
+                    name="cityDestination"
+                    key={flight._id}
+                    value={flight.cityTo}
+                  >
+                    {flight.cityTo}
+                  </option>
+                </>
+              );
+            })}
+          </select>
 
-            <input
-              type="date"
-              name="date"
-              placeholder="Date"
-              invalid={isInvalid}
-              value={formValues.date}
-              required
-              onChange={handleInputChange}
-            />
-            {isInvalid && (
-              <div style={{ color: "red" }}>
-                date must be later than current date
-              </div>
-            )}
-            <input
-              type="number"
-              name="passengers"
-              placeholder="seats"
-              value={formValues.passengers}
-              onChange={handleInputChange}
-              min={1}
-              max={322}
-            />
-            <button
-              disabled={!allValuesFilled | isInvalid}
-              onClick={handleSearch}
-            >
-              Search
-            </button>
-          </div>
-
-          <div className="navbar__prices">
-            <h1>Filter by price</h1>
-            {/* <label>Filter by prices</label> */}
-            <input
-              type="number"
-              name="minPrice"
-              placeholder="min"
-              value={prices.minPrice}
-              onChange={handlePricesChange}
-            />
-            <input
-              type="number"
-              name="maxPrice"
-              placeholder="max"
-              value={prices.maxPrice}
-              onChange={handlePricesChange}
-            />
-            {priceError && (
-              <div
-                style={{ color: "red" }}
-              >{`El precio maximo elegido: ${prices.maxPrice} debe ser mayor al precio minimo elegido: ${prices.minPrice}`}</div>
-            )}
-            <button
-              disabled={!allValuesPriceFilled | priceError}
-              onClick={handleSearchPrice}
-            >
-              Filter
-            </button>
-          </div>
-          <div className="navbar__hours">
-            <h1>Filter by time</h1>
-            <input
-              type="time"
-              name="time"
-              placeholder="17:05 p.m"
-              value={hour}
-              onChange={(e) => setHour(e.target.value)}
-            />
-            <p>results will be within a two hour range</p>
-            <button onClick={handleOrderHour}>Filter</button>
-          </div>
+          <input
+            type="date"
+            name="date"
+            placeholder="Date"
+            invalid={isInvalid}
+            value={formValues.date}
+            required
+            onChange={handleInputChange}
+          />
+          {isInvalid && (
+            <div style={{ color: "red" }}>
+              date must be later than current date
+            </div>
+          )}
+          <input
+            type="number"
+            name="passengers"
+            placeholder="seats"
+            value={formValues.passengers}
+            onChange={handleInputChange}
+            min={1}
+            max={322}
+          />
+          <button
+            disabled={!allValuesFilled | isInvalid}
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
-      </header>
+      </div>
+
+      <div className="navbar__lat another__class">
+      <div className="navbar__lat__price">
+        <h1>Filter by price</h1>
+        {/* <label>Filter by prices</label> */}
+        <input
+          type="number"
+          name="minPrice"
+          placeholder="min"
+          value={prices.minPrice}
+          onChange={handlePricesChange}
+        />
+        <input
+          type="number"
+          name="maxPrice"
+          placeholder="max"
+          value={prices.maxPrice}
+          onChange={handlePricesChange}
+        />
+        {priceError && (
+          <div
+            style={{ color: "red" }}
+          >{`El precio maximo elegido: ${prices.maxPrice} debe ser mayor al precio minimo elegido: ${prices.minPrice}`}</div>
+        )}
+        <button
+          disabled={!allValuesPriceFilled | priceError}
+          onClick={handleSearchPrice}
+        >
+          Filter
+        </button>
+      </div>
+      <div className="navbar__hours">
+        <h1>Filter by time</h1>
+        <input
+          type="time"
+          name="time"
+          placeholder="17:05 p.m"
+          value={hour}
+          onChange={(e) => setHour(e.target.value)}
+        />
+        <p>results will be within a two hour range</p>
+        <button onClick={handleOrderHour}>Filter</button>
+      </div>
+      </div>
+      {/* </header> */}
       <div className="flights">
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {
             return (
               <div className="flights__card" key={flight._id}>
                 {/* <h2>ID: {flight._id}</h2> */}
-                <h1 className="flights__card__title">From: {flight.cityFrom}</h1>
+                <h1 className="flights__card__title">
+                  From: {flight.cityFrom}
+                </h1>
                 <h1 className="flights__card__title">To: {flight.cityTo}</h1>
-                <h2 className="flights__card__info"><strong>
-                  Price: &nbsp;
-                  </strong>
-                  {flight.price}</h2>
-                <h2 className="flights__card__info"> <strong>
-                  Time: &nbsp;
-                  </strong>
-                  {flight.date.slice(11, 25)}</h2>
                 <h2 className="flights__card__info">
-                  <strong>
-                    Available Seats: &nbsp;
-                    </strong>
-                     {flight.availableSeats}</h2>
+                  <strong>Price: &nbsp;</strong>
+                  {flight.price}
+                </h2>
                 <h2 className="flights__card__info">
-                  <strong>
-                    Date: &nbsp;
-                    </strong> 
-                 {flight.date.slice(0, 10)}</h2>
+                  {" "}
+                  <strong>Time: &nbsp;</strong>
+                  {flight.date.slice(11, 25)}
+                </h2>
+                <h2 className="flights__card__info">
+                  <strong>Available Seats: &nbsp;</strong>
+                  {flight.availableSeats}
+                </h2>
+                <h2 className="flights__card__info">
+                  <strong>Date: &nbsp;</strong>
+                  {flight.date.slice(0, 10)}
+                </h2>
 
                 {/* the buy button displays the modal */}
                 <div className="modal__button">
@@ -264,20 +269,20 @@ const SearchBar = ({ flights }) => {
         ) : (
           <h1>{searchResults.message}</h1>
         )}
-      </div>
         {/* modal  */}
 
-        <input type="checkbox" id="btn-modal"/>
-      <div className="container-modal">
-        <div className="flights__modal">
-          {showModal && (
-            <div className="overlay">
-              <label htmlFor="modal-toggle" className="modal-toggle">
-                &times;
-              </label>
-              <Modal id={idFlight} setModal={setShowModal}></Modal>
-            </div>
-          )}
+        {/* <input type="checkbox" id="btn-modal"/> */}
+        <div className="container-modal">
+          <div className="flights__modal">
+            {showModal && (
+              <div className="overlay">
+                <label htmlFor="modal-toggle" className="modal-toggle">
+                  &times;
+                </label>
+                <Modal id={idFlight} setModal={setShowModal}></Modal>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

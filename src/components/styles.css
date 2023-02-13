@@ -1,15 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500;600&display=swap");
 
-.navbar {
+.container {
+display: grid;
+grid-template-areas:
+"nav nav nav nav nav"
+"card card card card lat"
+"card card card card lat2";
+gap: 20px;
+background-image: linear-gradient(to right, #7478ee, #7372e1, #726cd5, #7066c9, #6d60bd, #5d6dc9, #4a7ad2, #3386d9, #00a6ec, #00c4f5, #00e0f5, #5ffbf1);
+font-family: "League Spartan", sans-serif;
+}
+/* .navbar {
   width: 100%;
-  background-color: #04276c;
-  top: 0;
-  color: white;
   position: fixed;
+  top: 0;
   z-index: 2;
+  background-color: #04276c;
   font-family: "League Spartan", sans-serif;
+  color: white;
+  grid-area: nav;
+} */
+.navbar__top {
+  grid-area: nav;
+  margin: 0 20px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.5);
+align-items: center;
+border-radius: 0 0 40px 40px;
+padding: 10px 10px;
 }
 
+.navbar__top img {
+padding-left: 40px;
+}
+.navbar__search {
+margin: 0 auto;
+align-items: center;
+align-content: center;
+display: flex;
+gap: 40px;
+color: white;
+}
+
+.navbar__search select {
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.navbar__search input {
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  min-width: 40px;
+}
 .navbar__info {
   width: 100%;
   margin: 0 auto;
@@ -21,32 +65,35 @@
   font-size: medium;
 }
 
-.navbar__vuelos {
-  background-color: #000000;
+
+.navbar__lat {
+  background-color: rgba(255, 255, 255, 0.5);
+  grid-area: lat;
+  border-radius: 20px;
+  margin-right: 20px;
+  padding: 60px 0;
 }
 
-.navbar__prices {
-  background-color: #487fed;
-}
-
-.navbar__hours {
+.another__class .navbar__lat {
   background-color: #95b5f7;
+  grid-area: lat;
+
 }
 
 .flights {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   padding-bottom: 2.5rem;
   margin-top: 6.3rem;
   position: relative;
-  background-color: blue;
+  grid-area: card;
 }
 
 .flights__card {
   margin: 10px;
   padding: 10px;
   background-color: #fff;
-  border: 1px solid gray;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #ddd;
   text-align: center;
