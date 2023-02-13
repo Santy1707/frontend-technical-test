@@ -109,6 +109,7 @@
   font-family: "League Spartan", sans-serif;
   font-size: 1.3rem;
   line-height: 5rem;
+
 }
 
 hr {
@@ -127,6 +128,8 @@ hr {
   grid-template-columns: repeat(7, 1fr);
   justify-content: space-between;
   color: rgb(255, 255, 255);
+  border-bottom: "1px solid white";
+  padding: "10px"
 }
 
 .flights__card__title {

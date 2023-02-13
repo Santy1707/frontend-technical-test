@@ -100,7 +100,7 @@ const SearchBar = ({ flights }) => {
       {/* <header className="navbar"> */}
       <div className="navbar__top">
         {/* <div className="navbar__info"> */}
-          <img src={logo} width="190px"/>
+        <img src={logo} width="190px" />
         <div className="navbar__search">
           <h1>Search flights</h1>
           {/* <label htmlFor="">CityFrom</label> */}
@@ -178,47 +178,47 @@ const SearchBar = ({ flights }) => {
       </div>
 
       <div className="navbar__lat another__class">
-      <div className="navbar__lat__price">
-        <h1>Filter by price</h1>
-        {/* <label>Filter by prices</label> */}
-        <input
-          type="number"
-          name="minPrice"
-          placeholder="min"
-          value={prices.minPrice}
-          onChange={handlePricesChange}
-        />
-        <input
-          type="number"
-          name="maxPrice"
-          placeholder="max"
-          value={prices.maxPrice}
-          onChange={handlePricesChange}
-        />
-        {priceError && (
-          <div
-            style={{ color: "red" }}
-          >{`El precio maximo elegido: ${prices.maxPrice} debe ser mayor al precio minimo elegido: ${prices.minPrice}`}</div>
-        )}
-        <button
-          disabled={!allValuesPriceFilled | priceError}
-          onClick={handleSearchPrice}
-        >
-          Filter
-        </button>
-      </div>
-      <div className="navbar__hours">
-        <h1>Filter by time</h1>
-        <input
-          type="time"
-          name="time"
-          placeholder="17:05 p.m"
-          value={hour}
-          onChange={(e) => setHour(e.target.value)}
-        />
-        <p>results will be within a two hour range</p>
-        <button onClick={handleOrderHour}>Filter</button>
-      </div>
+        <div className="navbar__lat__price">
+          <h1>Filter by price</h1>
+          {/* <label>Filter by prices</label> */}
+          <input
+            type="number"
+            name="minPrice"
+            placeholder="min"
+            value={prices.minPrice}
+            onChange={handlePricesChange}
+          />
+          <input
+            type="number"
+            name="maxPrice"
+            placeholder="max"
+            value={prices.maxPrice}
+            onChange={handlePricesChange}
+          />
+          {priceError && (
+            <div
+              style={{ color: "red" }}
+            >{`El precio maximo elegido: ${prices.maxPrice} debe ser mayor al precio minimo elegido: ${prices.minPrice}`}</div>
+          )}
+          <button
+            disabled={!allValuesPriceFilled | priceError}
+            onClick={handleSearchPrice}
+          >
+            Filter
+          </button>
+        </div>
+        <div className="navbar__hours">
+          <h1>Filter by time</h1>
+          <input
+            type="time"
+            name="time"
+            placeholder="17:05 p.m"
+            value={hour}
+            onChange={(e) => setHour(e.target.value)}
+          />
+          <p>results will be within a two hour range</p>
+          <button onClick={handleOrderHour}>Filter</button>
+        </div>
       </div>
       {/* </header> */}
       <div className="flights">
@@ -231,19 +231,20 @@ const SearchBar = ({ flights }) => {
           <div>date</div>
           <div></div>
         </div>
-          <hr></hr>
+        <hr></hr>
         {Array.isArray(searchResults) ? (
-          searchResults.map((flight, index) => {
+          searchResults.map((flight) => {
             return (
               <div className="flights__card" key={flight._id}>
                 {/* <h2>ID: {flight._id}</h2> */}
                 <h1 className="flights__card__title">
                   {/* From: */}
-                   {flight.cityFrom}
+                  {flight.cityFrom}
                 </h1>
                 <h1 className="flights__card__title">
                   {/* To: */}
-                   {flight.cityTo}</h1>
+                  {flight.cityTo}
+                </h1>
                 <h2 className="flights__card__info">
                   {/* <strong>Price: &nbsp;</strong> */}
                   {flight.price}
@@ -276,16 +277,15 @@ const SearchBar = ({ flights }) => {
                     </label>
                   </button>
                 </div>
-                 
-                
-                {index !== flights.length - 1 && <hr></hr>}
+
+                {/* {index !== flights.length - 1 && <hr></hr>} */}
               </div>
             );
           })
         ) : (
           <h1>{searchResults.message}</h1>
         )}
-      
+
         {/* modal  */}
 
         {/* <input type="checkbox" id="btn-modal"/> */}
@@ -301,7 +301,6 @@ const SearchBar = ({ flights }) => {
             )}
           </div>
         </div>
-        
       </div>
     </div>
     // </div>
