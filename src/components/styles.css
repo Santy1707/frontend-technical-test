@@ -88,13 +88,12 @@
   margin: 20px;
   padding: 60px 10px;
   color: rgb(148, 147, 147);
- 
 }
 
-.another__class .navbar__lat {
+/* .another__class .navbar__lat {
   background-color: #95b5f7;
   grid-area: lat;
-}
+} */
 .navbar__lat input {
   height: 3rem;
   border-radius: 0.5rem;
@@ -253,6 +252,16 @@ padding: 2rem;
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+      "nav nav nav nav nav"
+      "lat lat lat lat lat"
+      "card card card card card";}
+
+      .navbar__lat {
+        width: 100%;
+      }
   .flights__map {
     /* display: grid;
     grid-template-columns: 1fr 1fr; */

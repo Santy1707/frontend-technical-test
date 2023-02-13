@@ -177,7 +177,7 @@ const SearchBar = ({ flights }) => {
         </div>
       </div>
 
-      <div className="navbar__lat another__class">
+      <div className="navbar__lat">
         <div className="navbar__lat__price">
           <h1>Filter by price</h1>
           {/* <label>Filter by prices</label> */}
