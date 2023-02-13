@@ -233,7 +233,7 @@ const SearchBar = ({ flights }) => {
         </div>
           <hr></hr>
         {Array.isArray(searchResults) ? (
-          searchResults.map((flight) => {
+          searchResults.map((flight, index) => {
             return (
               <div className="flights__card" key={flight._id}>
                 {/* <h2>ID: {flight._id}</h2> */}
@@ -278,6 +278,7 @@ const SearchBar = ({ flights }) => {
                 </div>
                  
                 
+                {index !== flights.length - 1 && <hr></hr>}
               </div>
             );
           })
