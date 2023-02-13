@@ -117,16 +117,17 @@
   min-width: 40px;
 }
 
-/* .navbar__lat__price button{
+.navbar__lat__price button {
   margin-top: 20px;
-  padding: 5px 20px;
-  background-color: rgb(75, 94, 232);
-  color: rgb(255, 255, 255);
+  padding: 5px 5px;
+  margin: 0 auto;
+  width: 60px;
   border-radius: 50px;
   border: none;
-} */
+  padding: 5px;
+}
 
-.navbar__hours {
+.navbar__lat__hours {
   height: 300px;
   padding-top: 30px;
   display: flex;
@@ -135,14 +136,13 @@
   align-items: space-between;
 }
 
-/* .navbar__hours button{
-  margin-top: 20px;
-  padding: 5px 20px;
-  background-color: rgb(75, 94, 232);
-  color: rgb(255, 255, 255);
+.navbar__lat__hours button {
+  margin: 0 auto;
+  width: 60px;
   border-radius: 50px;
   border: none;
-} */
+  padding: 5px;
+}
 
 .flights {
   margin: 20px;
@@ -207,7 +207,7 @@ hr {
   left: 50%;
   position: fixed;
   padding: 20px;
-  display: none;
+  /* display: none; */
   z-index: 10;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -263,7 +263,7 @@ hr {
       "nav nav nav nav nav"
       "lat lat lat lat lat"
       "card card card card card";
-   margin: 0 auto;
+    margin: 0 auto;
   }
 
   .flights__card {
@@ -278,9 +278,6 @@ hr {
     display: inline;
     font-size: 1.2rem;
   }
-  /* .flights {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  } */
 
   .flights__map {
     /* display: grid;
@@ -291,6 +288,18 @@ hr {
   .flights__table {
     display: none;
   }
+
+  .navbar__lat {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .navbar__lat__price {
+    padding-top: 0;
+    border-bottom: none;
+  }
+
 }
 
 @media screen and (max-width: 425px) {

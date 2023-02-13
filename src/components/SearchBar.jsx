@@ -208,7 +208,7 @@ const SearchBar = ({ flights }) => {
             Filter
           </button>
         </div>
-        <div className="navbar__hours">
+        <div className="navbar__lat__hours">
           <h1>Filter by time</h1>
           <input
             type="time"
