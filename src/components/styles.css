@@ -1,14 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500;600&display=swap");
 
 .container {
-display: grid;
-grid-template-areas:
-"nav nav nav nav nav"
-"card card card card lat"
-"card card card card lat2";
-gap: 20px;
-background-image: linear-gradient(to right, #7478ee, #7372e1, #726cd5, #7066c9, #6d60bd, #5d6dc9, #4a7ad2, #3386d9, #00a6ec, #00c4f5, #00e0f5, #5ffbf1);
-font-family: "League Spartan", sans-serif;
+  display: grid;
+  grid-template-areas:
+    "nav nav nav nav nav"
+    "card card card card lat"
+    "card card card card lat2";
+  gap: 20px;
+  background-image: linear-gradient(
+    to right,
+    #7478ee,
+    #7372e1,
+    #726cd5,
+    #7066c9,
+    #6d60bd,
+    #5d6dc9,
+    #4a7ad2,
+    #3386d9,
+    #00a6ec,
+    #00c4f5,
+    #00e0f5,
+    #5ffbf1
+  );
+  font-family: "League Spartan", sans-serif;
 }
 /* .navbar {
   width: 100%;
@@ -25,21 +39,21 @@ font-family: "League Spartan", sans-serif;
   margin: 0 20px;
   display: flex;
   background-color: rgba(255, 255, 255, 0.5);
-align-items: center;
-border-radius: 0 0 40px 40px;
-padding: 10px 10px;
+  align-items: center;
+  border-radius: 0 0 40px 40px;
+  padding: 10px 10px;
 }
 
 .navbar__top img {
-padding-left: 40px;
+  padding-left: 40px;
 }
 .navbar__search {
-margin: 0 auto;
-align-items: center;
-align-content: center;
-display: flex;
-gap: 40px;
-color: white;
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  gap: 40px;
+  color: white;
 }
 
 .navbar__search select {
@@ -65,7 +79,6 @@ color: white;
   font-size: medium;
 }
 
-
 .navbar__lat {
   background-color: rgba(255, 255, 255, 0.5);
   grid-area: lat;
@@ -77,36 +90,50 @@ color: white;
 .another__class .navbar__lat {
   background-color: #95b5f7;
   grid-area: lat;
-
 }
 
 .flights {
-  display: flex;
-  flex-direction: column;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  margin: 10px;
+  padding: 10px;
   padding-bottom: 2.5rem;
   margin-top: 6.3rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-area: card;
-}
-
-.flights__card {
-  margin: 10px;
-  padding: 10px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px #ddd;
+  background-color: rgba(255, 255, 255, 0.5);
   text-align: center;
   font-family: "League Spartan", sans-serif;
+  font-size: 1.3rem;
+}
+
+hr {
+  border: 1px solid white;
+}
+.flights__table {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+}
+.flights__card {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
 }
 
 .flights__card__title {
-  font-weight: 300;
-  line-height: 2.5rem;
+  font-weight: 400;
+  line-height: 1rem;
 }
 .flights__card__info {
-  font-weight: 300;
-  line-height: 2rem;
+  font-weight: 100;
 }
 
 .flights__modal {
@@ -137,19 +164,14 @@ color: white;
   z-index: 100;
 }
 
-.modal__button {
-  padding: 10px;
-  background-color: white;
-}
-
 .modal__btn {
   margin-top: 20px;
-  padding: 25px 20px;
-  background-color: rgb(216, 180, 213);
-  color: rgb(120, 116, 116);
+  padding: 5px 20px;
+  background-color: rgb(75, 94, 232);
+  color: rgb(255, 255, 255);
   border-radius: 50px;
-  /* transition: all 300ms ease; */
-  border: 5px solid #95b5f7;
+  border: none;
+  
 }
 
 /* .overlay {

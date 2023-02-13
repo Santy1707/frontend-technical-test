@@ -222,30 +222,43 @@ const SearchBar = ({ flights }) => {
       </div>
       {/* </header> */}
       <div className="flights">
+        <div className="flights__table">
+          <div>from</div>
+          <div>to</div>
+          <div>price</div>
+          <div>time</div>
+          <div>seats</div>
+          <div>date</div>
+          <div></div>
+        </div>
+          <hr></hr>
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {
             return (
               <div className="flights__card" key={flight._id}>
                 {/* <h2>ID: {flight._id}</h2> */}
                 <h1 className="flights__card__title">
-                  From: {flight.cityFrom}
+                  {/* From: */}
+                   {flight.cityFrom}
                 </h1>
-                <h1 className="flights__card__title">To: {flight.cityTo}</h1>
+                <h1 className="flights__card__title">
+                  {/* To: */}
+                   {flight.cityTo}</h1>
                 <h2 className="flights__card__info">
-                  <strong>Price: &nbsp;</strong>
+                  {/* <strong>Price: &nbsp;</strong> */}
                   {flight.price}
                 </h2>
                 <h2 className="flights__card__info">
                   {" "}
-                  <strong>Time: &nbsp;</strong>
+                  {/* <strong>Time: &nbsp;</strong> */}
                   {flight.date.slice(11, 25)}
                 </h2>
                 <h2 className="flights__card__info">
-                  <strong>Available Seats: &nbsp;</strong>
+                  {/* <strong>Available Seats: &nbsp;</strong> */}
                   {flight.availableSeats}
                 </h2>
                 <h2 className="flights__card__info">
-                  <strong>Date: &nbsp;</strong>
+                  {/* <strong>Date: &nbsp;</strong> */}
                   {flight.date.slice(0, 10)}
                 </h2>
 
@@ -259,16 +272,19 @@ const SearchBar = ({ flights }) => {
                     }}
                   >
                     <label htmlFor="modal-toggle" className="modal-btn">
-                      BUY
+                      buy
                     </label>
                   </button>
                 </div>
+                 
+                
               </div>
             );
           })
         ) : (
           <h1>{searchResults.message}</h1>
         )}
+      
         {/* modal  */}
 
         {/* <input type="checkbox" id="btn-modal"/> */}
@@ -284,6 +300,7 @@ const SearchBar = ({ flights }) => {
             )}
           </div>
         </div>
+        
       </div>
     </div>
     // </div>
