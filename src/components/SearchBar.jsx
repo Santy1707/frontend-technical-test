@@ -77,6 +77,7 @@ const SearchBar = ({ flights }) => {
   );
   const priceError =
     parseInt(prices.maxPrice) < parseInt(prices.minPrice) ? true : false;
+  
   const handleSearch = () => {
     const result = searchFlights(filters, formValues);
     setSearchResults(result);
