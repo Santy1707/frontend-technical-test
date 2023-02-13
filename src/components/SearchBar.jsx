@@ -237,30 +237,32 @@ const SearchBar = ({ flights }) => {
           searchResults.map((flight) => {
             return (
               <div className="flights__card" key={flight._id}>
-                {/* <h2>ID: {flight._id}</h2> */}
+                {/* <h2 >ID: {flight._id}</h2> */}
                 <h1 className="flights__card__title">
-                  {/* From: */}
+                  <h2 className="flights__card__ms">From: &nbsp;</h2>
                   {flight.cityFrom}
                 </h1>
                 <h1 className="flights__card__title">
+                <h2 className="flights__card__ms">To: &nbsp;</h2>
                   {/* To: */}
                   {flight.cityTo}
                 </h1>
                 <h2 className="flights__card__info">
+                <h2 className="flights__card__ms">Price: &nbsp;</h2>
                   {/* <strong>Price: &nbsp;</strong> */}
                   $ {flight.price}
                 </h2>
                 <h2 className="flights__card__info">
-                  {" "}
+                <h2 className="flights__card__ms">Time: &nbsp;</h2>
                   {/* <strong>Time: &nbsp;</strong> */}
                   {flight.date.slice(11, 25)}
                 </h2>
                 <h2 className="flights__card__info">
-                  {/* <strong>Available Seats: &nbsp;</strong> */}
+                <h2 className="flights__card__ms">Seats: &nbsp;</h2>
                   {flight.availableSeats}
                 </h2>
                 <h2 className="flights__card__info">
-                  {/* <strong>Date: &nbsp;</strong> */}
+                <h2 className="flights__card__ms">Date: &nbsp;</h2>
                   {flight.date.slice(0, 10)}
                 </h2>
 
