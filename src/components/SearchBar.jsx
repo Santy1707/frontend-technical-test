@@ -188,6 +188,7 @@ const SearchBar = ({ flights }) => {
             value={prices.minPrice}
             onChange={handlePricesChange}
           />
+       
           <input
             type="number"
             name="maxPrice"
@@ -200,7 +201,7 @@ const SearchBar = ({ flights }) => {
               style={{ color: "red" }}
             >{`El precio maximo elegido: ${prices.maxPrice} debe ser mayor al precio minimo elegido: ${prices.minPrice}`}</div>
           )}
-          <button
+          <button 
             disabled={!allValuesPriceFilled | priceError}
             onClick={handleSearchPrice}
           >
@@ -231,7 +232,7 @@ const SearchBar = ({ flights }) => {
           <div>date</div>
           <div></div>
         </div>
-        <hr></hr>
+        {/* <hr></hr> */}
         {Array.isArray(searchResults) ? (
           searchResults.map((flight) => {
             return (
@@ -247,7 +248,7 @@ const SearchBar = ({ flights }) => {
                 </h1>
                 <h2 className="flights__card__info">
                   {/* <strong>Price: &nbsp;</strong> */}
-                  {flight.price}
+                  $ {flight.price}
                 </h2>
                 <h2 className="flights__card__info">
                   {" "}
