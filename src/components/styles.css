@@ -286,6 +286,10 @@ hr {
     grid-template-columns: 1fr 1fr; */
     margin-top: 11.7rem;
   }
+
+  .flights__table {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 425px) {
