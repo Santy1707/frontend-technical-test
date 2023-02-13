@@ -8,19 +8,19 @@
     "card card card card lat2";
   /* gap: 20px; */
   background-image: linear-gradient(
-    to right,
-    #7478ee,
-    #7372e1,
-    #726cd5,
-    #7066c9,
-    #6d60bd,
-    #5d6dc9,
-    #4a7ad2,
-    #3386d9,
-    #00a6ec,
-    #00c4f5,
-    #00e0f5,
-    #5ffbf1
+    to right top,
+    #002a5c,
+    #00326c,
+    #00397c,
+    #00418d,
+    #00499e,
+    #064fa5,
+    #0c56ac,
+    #125cb3,
+    #1e62b1,
+    #2a67b0,
+    #356cad,
+    #3f71ab
   );
   font-family: "League Spartan", sans-serif;
 }
@@ -255,13 +255,14 @@ hr {
   display: flex;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 920px) {
   .container {
     display: grid;
     grid-template-areas:
       "nav nav nav nav nav"
       "lat lat lat lat lat"
       "card card card card card";
+   margin: 0 auto;
   }
 
   .flights__card {
