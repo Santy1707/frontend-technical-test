@@ -1,82 +1,299 @@
-.div__general {
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;500;600&display=swap");
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "nav nav nav nav nav"
+    "card card card card lat"
+    "card card card card lat2";
+  /* gap: 20px; */
+  background-image: linear-gradient(
+    to right top,
+    #002a5c,
+    #00326c,
+    #00397c,
+    #00418d,
+    #00499e,
+    #064fa5,
+    #0c56ac,
+    #125cb3,
+    #1e62b1,
+    #2a67b0,
+    #356cad,
+    #3f71ab
+  );
+  font-family: "League Spartan", sans-serif;
+}
+/* .navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: #04276c;
+  font-family: "League Spartan", sans-serif;
+  color: white;
+  grid-area: nav;
+} */
+.navbar__top {
+  grid-area: nav;
+  margin: 0 20px;
+
   display: flex;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  border-radius: 0 0 40px 40px;
+  padding: 40px 10px 20px;
 }
 
-.navbar {
-  width: 100%;
-  background-color: #04276C ;
-  color: white;
-  position: fixed;
+.navbar__top img {
+  padding-left: 40px;
+}
+.navbar__search {
+  margin: 0 auto;
+  align-items: center;
+  align-content: center;
   display: flex;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  flex: grid;
-  z-index: 2;
+  gap: 40px;
+  color: white;
+}
+
+.navbar__search select {
+  height: 2rem;
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.navbar__search input {
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  min-width: 40px;
 }
 
 .navbar__info {
-  width: 80%;
-  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .navbar__title {
   font-size: medium;
 }
 
-.navbar__vuelos {
-  background-color: #000000;
+.navbar__lat {
+  background-color: rgba(255, 255, 255, 0.5);
+  grid-area: lat;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 60px 10px;
+  color: rgb(148, 147, 147);
 }
 
-.navbar__prices {
-  background-color: #487FED;
+/* .another__class .navbar__lat {
+  background-color: #95b5f7;
+  grid-area: lat;
+} */
+.navbar__lat input {
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  min-width: 40px;
 }
+.navbar__lat__price {
+  height: 300px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  border-bottom: 1px solid white;
+}
+.navbar__lat__price input {
+  height: 3rem;
+  border-radius: 0.5rem;
+  border: none;
+  min-width: 40px;
+}
+
+/* .navbar__lat__price button{
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: rgb(75, 94, 232);
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+  border: none;
+} */
 
 .navbar__hours {
-  background-color: #95B5F7;
-}
-
-.flights__map {
+  height: 300px;
+  padding-top: 30px;
   display: flex;
-  padding-bottom: 2.5rem;
-  margin-top: calc(9rem + 60px); /* Agrega un margen superior igual a la altura de la navbar */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en múltiples filas */
-  position: relative;
-  }
-
-.flights__card {
-  padding: 1rem;
-  border: 1px solid gray;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #ddd;
-  flex-basis: 25%;
-  text-align: center;
-  margin: 1rem;
-  background-color: #fff;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
 }
 
-.flights__modal{ 
-  position: fixed;
+/* .navbar__hours button{
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: rgb(75, 94, 232);
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+  border: none;
+} */
+
+.flights {
+  margin: 20px;
+  padding: 10px;
+  padding-bottom: 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); */
+  grid-area: card;
+  background-color: #fff;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-family: "League Spartan", sans-serif;
+  font-size: 1.3rem;
+  line-height: 5rem;
+}
+
+hr {
+  border: 1px solid white;
+}
+.flights__table {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgb(225, 221, 221);
+  border-bottom: 1px solid white;
+}
+.flights__card {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  border-bottom: 1px solid white;
+}
+
+.flights__card__ms {
+  display: none;
+  font-size: 1.2rem;
+}
+.flights__card__title {
+  font-weight: 400;
+  line-height: 1rem;
+  padding: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+.flights__card__info {
+  font-weight: 100;
+  line-height: 1rem;
+  padding: 2rem;
+}
+
+.flights__modal {
   top: 50%;
   left: 50%;
+  position: fixed;
+  padding: 20px;
+  display: none;
+  z-index: 10;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-  z-index: 10;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  min-width: 300px;
+  min-height: 380px;
+  border-radius: 20px;
 }
 
-.overlay {
+.container-modal {
+  width: 100%;
+  height: 100vh;
+  position: none;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal__btn {
+  margin-top: 20px;
+  padding: 5px 20px;
+  background-color: rgb(75, 94, 232);
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+  border: none;
+}
+
+/* .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 9;
+} */
+.modal__close:checked ~ .flights__modal {
+  display: none;
 }
 
-@media screen and (max-width: 767px) {
+.modal-toggle:checked #container-modal {
+  display: flex;
+}
+
+@media screen and (max-width: 920px) {
+  .container {
+    display: grid;
+    grid-template-areas:
+      "nav nav nav nav nav"
+      "lat lat lat lat lat"
+      "card card card card card";
+   margin: 0 auto;
+  }
+
+  .flights__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid white;
+  }
+
+  .flights__card__ms {
+    display: inline;
+    font-size: 1.2rem;
+  }
+  /* .flights {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  } */
+
   .flights__map {
-    margin-top: calc(12rem + 60px); /* Agrega un margen superior igual a la altura de la navbar */
-    }  
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    margin-top: 11.7rem;
+  }
+
+  .flights__table {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .flights__map {
+    margin-top: 30px;
+  }
 }
