@@ -58,6 +58,16 @@
   color: white;
 }
 
+.navbar__search button {
+  margin-top: 20px;
+  padding: 5px 5px;
+  margin: 0 auto;
+  width: 60px;
+  border-radius: 50px;
+  border: none;
+  padding: 5px;
+}
+
 .navbar__search select {
   height: 2rem;
   border-radius: 0.5rem;
@@ -263,19 +273,21 @@ hr {
       "nav nav nav nav nav"
       "lat lat lat lat lat"
       "card card card card card";
+    overflow: auto;
+    max-width: 920px;
     margin: 0 auto;
   }
 
-    .flights {
+  .flights {
     margin: 20px;
     padding: 10px;
     padding-bottom: 2.5rem;
     background-color: rgb(255, 255, 255, 0);
   }
-  
+
   .flights__card {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
     color: rgb(255, 255, 255 0.5);
     border-bottom: none;
@@ -287,12 +299,6 @@ hr {
   .flights__card__ms {
     display: inline;
     font-size: 1.2rem;
-  }
-
-  .flights__map {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    margin-top: 11.7rem;
   }
 
   .flights__table {
@@ -313,7 +319,6 @@ hr {
   .navbar__lat input {
     width: 150px;
   }
-
 }
 
 @media screen and (max-width: 425px) {
